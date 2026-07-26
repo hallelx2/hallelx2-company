@@ -1,60 +1,82 @@
 import React from 'react';
-import { HairlineDivider } from './HairlineDivider';
+import { ArrowCTAButton } from './ArrowCTAButton';
+import { FilledActionButton } from './FilledActionButton';
 
 export interface FooterProps {
   brandName?: string;
-  tagline?: string;
-  copyrightYear?: number;
   className?: string;
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  brandName = 'hallelx2',
-  tagline = 'Architectural intelligence & precision biological computation.',
-  copyrightYear = 2026,
+  brandName = 'HallelX2 Labs',
   className = '',
 }) => {
   return (
-    <footer className={`w-full bg-[var(--color-void)] text-[var(--color-paper)] py-16 px-4 md:px-8 ${className}`}>
-      <div className="max-w-[1200px] mx-auto space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2 space-y-4">
+    <footer className={`relative w-full bg-[var(--color-abyssal-ink)] text-[var(--color-paper)] pt-24 pb-12 px-4 md:px-8 overflow-hidden border-t border-[var(--color-graphite)]/30 ${className}`}>
+      {/* Background organic backdrop image */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none mix-blend-screen">
+        <img
+          src="/images/cell_microscopy.jpg"
+          alt="Bio-computing footer backdrop"
+          className="w-full h-full object-cover filter blur-[1px]"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto space-y-20">
+        {/* Upper content row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Statement & CTA */}
+          <div className="lg:col-span-7 space-y-8">
+            <h2 className="font-sans text-[32px] md:text-[46px] leading-[1.1] tracking-[-0.02em] font-normal text-[var(--color-paper)] max-w-xl">
+              We are engineering low-latency bio-computing, core retrieval engines, &amp; clinical operating systems.
+            </h2>
+
             <div className="flex items-center gap-3">
-              <div className="w-6 h-6 rounded-[6px] bg-[var(--color-abyssal-ink)] border border-[var(--color-graphite)] flex items-center justify-center">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-bioluminescent-lime)]"></span>
-              </div>
-              <span className="font-sans text-[24px] tracking-[-0.14px] text-[var(--color-paper)]">
-                {brandName}
-              </span>
+              <FilledActionButton href="#contact" onLightCanvas={false}>
+                WORK WITH US
+              </FilledActionButton>
+              <ArrowCTAButton href="#contact" ariaLabel="Contact HallelX2 Labs" />
             </div>
-            <p className="font-sans text-[18px] text-[var(--color-graphite)] max-w-sm leading-[1.3] tracking-[-0.018px]">
-              {tagline}
-            </p>
           </div>
 
-          <div className="space-y-3 font-mono text-[13px] tracking-[-0.26px]">
-            <div className="text-[var(--color-lichen)] uppercase font-mono mb-2">Navigation</div>
-            <div><a href="#overview" className="text-[var(--color-graphite)] hover:text-[var(--color-paper)] transition-colors">Overview</a></div>
-            <div><a href="#platform" className="text-[var(--color-graphite)] hover:text-[var(--color-paper)] transition-colors">Platform</a></div>
-            <div><a href="#research" className="text-[var(--color-graphite)] hover:text-[var(--color-paper)] transition-colors">Research</a></div>
-            <div><a href="#newsroom" className="text-[var(--color-graphite)] hover:text-[var(--color-paper)] transition-colors">Newsroom</a></div>
-          </div>
+          {/* Navigation Columns */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-8 font-sans">
+            <div className="space-y-4">
+              <div className="font-mono text-[12px] text-[var(--color-lichen)] uppercase tracking-[0.05em]">
+                NAVIGATE
+              </div>
+              <ul className="space-y-3 text-[17px] text-[var(--color-paper)]">
+                <li><a href="#overview" className="hover:underline">Overview</a></li>
+                <li><a href="#stack" className="hover:underline">Architecture Stack</a></li>
+                <li><a href="#axioms" className="hover:underline">Operating Axioms</a></li>
+                <li><a href="/components" className="hover:underline">Shadcn Suite</a></li>
+              </ul>
+            </div>
 
-          <div className="space-y-3 font-mono text-[13px] tracking-[-0.26px]">
-            <div className="text-[var(--color-lichen)] uppercase font-mono mb-2">Contact & Legal</div>
-            <div><a href="mailto:info@hallelx2.com" className="text-[var(--color-graphite)] hover:text-[var(--color-paper)] transition-colors">info@hallelx2.com</a></div>
-            <div><a href="#privacy" className="text-[var(--color-graphite)] hover:text-[var(--color-paper)] transition-colors">Privacy Policy</a></div>
-            <div><a href="#terms" className="text-[var(--color-graphite)] hover:text-[var(--color-paper)] transition-colors">Terms of Service</a></div>
+            <div className="space-y-4">
+              <div className="font-mono text-[12px] text-[var(--color-lichen)] uppercase tracking-[0.05em]">
+                CONNECT
+              </div>
+              <ul className="space-y-3 text-[17px] text-[var(--color-paper)]">
+                <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</a></li>
+                <li><a href="https://x.com" target="_blank" rel="noreferrer" className="hover:underline">X / Twitter</a></li>
+                <li><a href="https://github.com/hallelx2" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <HairlineDivider onLightCanvas={false} />
+        {/* Giant Watermark Display Branding */}
+        <div className="pt-12 border-t border-[var(--color-graphite)]/40 flex flex-col space-y-8">
+          <div className="w-full text-center lg:text-left overflow-hidden">
+            <span className="font-sans text-[clamp(60px,14vw,220px)] leading-[0.85] tracking-[-0.04em] font-normal text-[var(--color-paper)] select-none opacity-95 block">
+              {brandName}
+            </span>
+          </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[13px] text-[var(--color-graphite)] tracking-[-0.26px]">
-          <div>© {copyrightYear} {brandName}. All rights reserved.</div>
-          <div className="flex items-center gap-2">
-            <span className="w-[6px] h-[6px] rounded-full bg-[var(--color-bioluminescent-lime)]"></span>
-            <span>Instrumentation Status: Active</span>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[12px] text-[var(--color-lichen)] uppercase tracking-[-0.02em]">
+            <span>&copy; 2026 HALLELX2 LABS. ALL RIGHTS RESERVED.</span>
+            <span>STATUS: ACTIVE OPERATIONAL FRAMEWORK // v2.2.0</span>
           </div>
         </div>
       </div>
