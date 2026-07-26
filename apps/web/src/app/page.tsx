@@ -10,14 +10,27 @@ import {
   OutlinedGhostButton,
   NewsArticleCard,
   HairlineDivider,
+  Badge,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
   Footer,
 } from '@hallelx2/ui';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[var(--color-abyssal-ink)] text-[var(--color-paper)] flex flex-col">
+    <div className="min-h-screen bg-[var(--color-abyssal-ink)] text-[var(--color-paper)] flex flex-col font-sans">
       {/* Navigation */}
-      <HeaderNav />
+      <HeaderNav
+        navItems={[
+          { label: 'Overview', href: '#overview', active: true },
+          { label: 'Platform', href: '#platform' },
+          { label: 'Shadcn Suite', href: '/components' },
+          { label: 'Newsroom', href: '#newsroom' },
+        ]}
+      />
 
       {/* Hero Section — Dark Canvas (#222f30) */}
       <section className="w-full bg-[var(--color-abyssal-ink)] pt-12 pb-24 md:py-32 px-4 md:px-8 border-b border-[var(--color-graphite)]/40">
@@ -40,15 +53,15 @@ export default function HomePage() {
           </div>
 
           <div className="pt-8 flex flex-wrap items-center gap-4">
-            <FilledActionButton href="#platform" onLightCanvas={false}>
-              Explore Platform
+            <FilledActionButton href="/components" onLightCanvas={false}>
+              Explore Shadcn Suite
             </FilledActionButton>
 
             <div className="flex items-center gap-2">
-              <OutlinedGhostButton href="#research" onLightCanvas={false}>
-                Read Publications
+              <OutlinedGhostButton href="#platform" onLightCanvas={false}>
+                View Platform Architecture
               </OutlinedGhostButton>
-              <ArrowCTAButton href="#research" ariaLabel="Go to research" />
+              <ArrowCTAButton href="#platform" ariaLabel="Go to platform" />
             </div>
           </div>
         </div>
@@ -64,7 +77,7 @@ export default function HomePage() {
                 INSTRUMENTATION ARCHITECTURE
               </span>
             </div>
-            <PillNavButton active={true}>SYSTEM OVERVIEW</PillNavButton>
+            <PillNavButton active={true} href="/components">SHADCN COMPONENTS LIVE</PillNavButton>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -89,6 +102,51 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Featured Primitives Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant="tag">COMPONENT</Badge>
+                  <span className="font-mono text-[12px] text-[var(--color-bioluminescent-lime)]">SHADCN / RADIX</span>
+                </div>
+                <CardTitle>Accessible Primitives</CardTitle>
+                <CardDescription>Full Radix accessibility with single-weight Aspekta styling.</CardDescription>
+              </CardHeader>
+              <CardContent className="text-body text-[var(--color-lichen)] text-[15px]">
+                Modals, dropdowns, popovers, tabs, switches, sliders, accordions, and data tables all pre-styled to match the lab theme.
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant="tag">TOKENS</Badge>
+                  <span className="font-mono text-[12px] text-[var(--color-bioluminescent-lime)]">SHARED UI</span>
+                </div>
+                <CardTitle>Zero Shadow Elevation</CardTitle>
+                <CardDescription>Flat surfaces &amp; hairline border delineation.</CardDescription>
+              </CardHeader>
+              <CardContent className="text-body text-[var(--color-lichen)] text-[15px]">
+                Strict architectural discipline with #c9cbbe and #4d5757 hairline borders and a single bioluminescent lime signal lamp.
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant="tag">MONOREPO</Badge>
+                  <span className="font-mono text-[12px] text-[var(--color-bioluminescent-lime)]">TURBO + PNPM</span>
+                </div>
+                <CardTitle>Package Reusability</CardTitle>
+                <CardDescription>Exported seamlessly from @hallelx2/ui.</CardDescription>
+              </CardHeader>
+              <CardContent className="text-body text-[var(--color-lichen)] text-[15px]">
+                Import any component directly into any web app across the hallelx2 monorepo with 100% type safety and design alignment.
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -99,11 +157,11 @@ export default function HomePage() {
             <div className="flex items-center gap-4">
               <SectionCounter current={3} total={3} />
               <span className="font-mono text-[13px] text-[var(--color-graphite)] tracking-[-0.26px] uppercase">
-                NEWSROOM & EDITORIAL
+                NEWSROOM &amp; EDITORIAL
               </span>
             </div>
-            <PillNavButton active={false} onLightSurface={true}>
-              VIEW ALL ARTICLES
+            <PillNavButton active={false} onLightSurface={true} href="/components">
+              VIEW COMPONENT SUITE
             </PillNavButton>
           </div>
 
@@ -116,7 +174,7 @@ export default function HomePage() {
               category="PUBLICATIONS"
               date="JULY 2026"
               title="High-throughput biological sequence modeling in darkroom environments"
-              excerpt="Introducing hallelx2's architectural framework for real-time cellular data aggregation and low-latency biological inference."
+              excerpt="Introducing hallelx2's architectural framework for real-time cellular data aggregation, Shadcn design primitives, and low-latency biological inference."
               href="#article-1"
             />
           </div>
