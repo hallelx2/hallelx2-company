@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6, b, strong, th {
   box-shadow: none !important;
 }
 
-/* Monospaced utility font */
+/* Typography Utility Classes */
 .font-mono {
   font-family: var(--font-roboto-mono);
   font-weight: 400;
@@ -47,39 +47,39 @@ h1, h2, h3, h4, h5, h6, b, strong, th {
   font-weight: 400;
 }
 
-/* Typography scale classes with linear negative tracking */
+/* Responsive Type Scale with Linear Negative Tracking */
 .text-hero {
-  font-size: clamp(52px, 8.5vw, 158px);
+  font-size: clamp(56px, 9vw, 158px);
   line-height: 1.0;
   letter-spacing: -0.03em;
 }
 
 .text-display-xl {
-  font-size: clamp(42px, 6.5vw, 111px);
+  font-size: clamp(48px, 7vw, 111px);
   line-height: 1.0;
   letter-spacing: -0.022em;
 }
 
 .text-display-lg {
-  font-size: clamp(36px, 5vw, 89px);
-  line-height: 1.05;
+  font-size: clamp(38px, 5.5vw, 89px);
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 .text-display {
-  font-size: clamp(32px, 4.2vw, 75px);
+  font-size: clamp(32px, 4.5vw, 75px);
   line-height: 1.1;
   letter-spacing: -0.018em;
 }
 
 .text-heading-lg {
-  font-size: clamp(28px, 3.5vw, 58px);
+  font-size: clamp(28px, 3.8vw, 58px);
   line-height: 1.1;
   letter-spacing: -0.012em;
 }
 
 .text-heading-sm {
-  font-size: clamp(22px, 2.8vw, 36px);
+  font-size: clamp(24px, 3vw, 36px);
   line-height: 1.2;
   letter-spacing: -0.006em;
 }
@@ -118,39 +118,18 @@ h1, h2, h3, h4, h5, h6, b, strong, th {
   border: 1px solid var(--color-lichen);
 }
 
-.divider-dark {
-  height: 1px;
-  background-color: var(--color-graphite);
-  width: 100%;
-}
-
-.divider-light {
-  height: 1px;
-  background-color: var(--color-lichen);
-  width: 100%;
-}
-
-/* Section surface utility classes */
-.bg-canvas-dark {
-  background-color: var(--color-abyssal-ink);
-  color: var(--color-paper);
-}
-
-.bg-canvas-light {
-  background-color: var(--color-bone-white);
-  color: var(--color-abyssal-ink);
-}
-
-.bg-footer {
-  background-color: var(--color-void);
-  color: var(--color-paper);
-}
-
-/* Max container */
+/* Page Container Constraints */
 .container-constrained {
   max-width: var(--page-max-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--spacing-24);
-  padding-right: var(--spacing-24);
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+}
+
+@media (max-width: 768px) {
+  .container-constrained {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

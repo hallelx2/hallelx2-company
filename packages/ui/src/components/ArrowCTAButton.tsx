@@ -1,34 +1,49 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 
 export interface ArrowCTAButtonProps {
-  onClick?: () => void;
   href?: string;
-  className?: string;
+  onClick?: () => void;
   ariaLabel?: string;
+  className?: string;
 }
 
 export const ArrowCTAButton: React.FC<ArrowCTAButtonProps> = ({
-  onClick,
   href,
-  className = '',
+  onClick,
   ariaLabel = 'Navigate',
+  className = '',
 }) => {
-  const baseClasses = "w-[40px] h-[40px] min-w-[40px] rounded-[8px] bg-[var(--color-bioluminescent-lime)] text-[var(--color-abyssal-ink)] flex items-center justify-center cursor-pointer transition-transform hover:scale-105";
-
-  const combinedClasses = `${baseClasses} ${className}`;
+  const content = (
+    <div
+      className={`w-[40px] h-[40px] rounded-[8px] bg-[var(--color-bioluminescent-lime)] text-[var(--color-abyssal-ink)] flex items-center justify-center transition-transform duration-200 hover:scale-105 ${className}`}
+      aria-label={ariaLabel}
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M7 17L17 7M17 7H7M17 7V17" />
+      </svg>
+    </div>
+  );
 
   if (href) {
     return (
-      <a href={href} className={combinedClasses} aria-label={ariaLabel}>
-        <ArrowUpRight size={20} strokeWidth={2} />
+      <a href={href} aria-label={ariaLabel}>
+        {content}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className={combinedClasses} aria-label={ariaLabel}>
-      <ArrowUpRight size={20} strokeWidth={2} />
+    <button onClick={onClick} type="button" aria-label={ariaLabel}>
+      {content}
     </button>
   );
 };
