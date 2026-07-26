@@ -24,7 +24,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   navItems = [
     { label: 'Overview', href: '#overview', active: true },
     { label: 'Platform', href: '#platform' },
-    { label: 'Research', href: '#research' },
+    { label: 'Shadcn Suite', href: '/components' },
     { label: 'Newsroom', href: '#newsroom' },
   ],
   ctaLabel = 'Work With Us',
@@ -35,8 +35,8 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   const brandTextColor = onLightCanvas ? 'text-[var(--color-abyssal-ink)]' : 'text-[var(--color-paper)]';
 
   return (
-    <header className={`w-full py-6 px-4 md:px-8 bg-transparent ${className}`}>
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-4">
+    <header className={`w-full py-8 px-4 md:px-8 bg-transparent ${className}`}>
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between gap-6">
         {/* Brand logo / mark */}
         <a href={brandHref} className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded-[8px] bg-[var(--color-abyssal-ink)] border border-[var(--color-graphite)] flex items-center justify-center">
@@ -48,7 +48,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         </a>
 
         {/* Links */}
-        <nav className="hidden md:flex items-center gap-2">
+        <nav className="hidden lg:flex items-center gap-3">
           {navItems.map((item) => (
             <PillNavButton
               key={item.label}

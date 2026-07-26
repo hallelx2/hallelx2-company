@@ -1,14 +1,22 @@
 import type { Metadata } from 'next';
-import { Inter_Tight, Roboto_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import { Roboto_Mono } from 'next/font/google';
 import './globals.css';
 
-const interTight = Inter_Tight({
-  subsets: ['latin'],
-  weight: ['400'],
+// Primary Brand Typeface: Aspekta (Single Weight 400)
+const aspekta = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Aspekta-400.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
   variable: '--font-aspekta',
   display: 'swap',
 });
 
+// Technical Metadata Typeface: Roboto Mono
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   weight: ['400'],
@@ -27,10 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${interTight.variable} ${robotoMono.variable}`}>
+    <html lang="en" className={`${aspekta.variable} ${robotoMono.variable}`}>
       <body className="bg-[var(--color-abyssal-ink)] text-[var(--color-paper)] font-sans antialiased selection:bg-[var(--color-bioluminescent-lime)] selection:text-[var(--color-abyssal-ink)]">
         {children}
       </body>
     </html>
   );
-};
+}

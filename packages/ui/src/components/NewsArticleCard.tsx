@@ -18,28 +18,22 @@ export const NewsArticleCard: React.FC<NewsArticleCardProps> = ({
   date,
   title,
   excerpt,
-  imageUrl,
-  imageAlt = 'Scientific research image',
+  imageUrl = '/images/cell_microscopy.jpg',
+  imageAlt = 'Scientific research cellular microscopy 3D render',
   href = '#',
   className = '',
 }) => {
   return (
     <article
-      className={`bg-[var(--color-paper)] rounded-[20px] md:rounded-[40px] p-6 md:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${className}`}
+      className={`bg-[var(--color-paper)] rounded-[20px] md:rounded-[40px] p-8 md:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${className}`}
     >
-      {/* Left half: dark scientific image */}
-      <div className="w-full h-full min-h-[260px] max-h-[400px] bg-[var(--color-abyssal-ink)] rounded-[16px] overflow-hidden flex items-center justify-center relative">
-        {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={imageAlt}
-            className="w-full h-full object-cover rounded-[16px]"
-          />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[var(--color-abyssal-ink)] to-[#151d1e] flex items-center justify-center p-6 text-[var(--color-graphite)] font-mono text-sm border border-[var(--color-graphite)]/30 rounded-[16px]">
-            [ Scientific Visual / Render ]
-          </div>
-        )}
+      {/* Left half: dark full-bleed scientific image */}
+      <div className="w-full h-full min-h-[300px] max-h-[420px] bg-[var(--color-abyssal-ink)] rounded-[16px] overflow-hidden relative border border-[var(--color-graphite)]/30">
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          className="w-full h-full object-cover rounded-[16px] transition-transform duration-500 hover:scale-105"
+        />
       </div>
 
       {/* Right half: content */}
@@ -61,7 +55,7 @@ export const NewsArticleCard: React.FC<NewsArticleCardProps> = ({
           </p>
         </div>
 
-        <div className="pt-4 flex items-center justify-between border-t border-[var(--color-lichen)]">
+        <div className="pt-6 flex items-center justify-between border-t border-[var(--color-lichen)]">
           <a
             href={href}
             className="font-mono text-[13px] text-[var(--color-abyssal-ink)] tracking-[-0.26px] uppercase hover:underline"
