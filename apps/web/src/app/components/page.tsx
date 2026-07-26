@@ -47,8 +47,8 @@ export default function ComponentsShowcasePage() {
         {/* Navigation */}
         <HeaderNav
           navItems={[
-            { label: 'Platform', href: '/' },
-            { label: 'Shadcn Suite', href: '/components', active: true },
+            { label: 'PLATFORM', href: '/' },
+            { label: 'SHADCN SUITE', href: '/components', active: true },
           ]}
         />
 

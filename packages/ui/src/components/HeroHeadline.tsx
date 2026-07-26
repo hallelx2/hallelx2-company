@@ -11,9 +11,10 @@ export const HeroHeadline: React.FC<HeroHeadlineProps> = ({
 }) => {
   return (
     <h1
-      className={`font-sans font-normal text-hero text-[var(--color-paper)] leading-[1.0] tracking-[-0.03em] select-text max-w-5xl ${className}`}
+      className={`font-sans font-normal text-hero text-[var(--color-paper)] leading-[1.0] tracking-[-0.03em] select-text ${className}`}
     >
       {children}
     </h1>
   );
 };
+
