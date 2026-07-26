@@ -1,0 +1,147 @@
+@import "./tokens.css";
+
+/* Base reset & design system constraints */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-abyssal-ink);
+  color: var(--color-paper);
+  font-family: var(--font-aspekta);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Strict single-weight enforcement — no bolding, no italics */
+h1, h2, h3, h4, h5, h6, b, strong, th {
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* No box shadows anywhere per rules */
+*, *::before, *::after {
+  box-shadow: none !important;
+}
+
+/* Monospaced utility font */
+.font-mono {
+  font-family: var(--font-roboto-mono);
+  font-weight: 400;
+}
+
+.font-sans {
+  font-family: var(--font-aspekta);
+  font-weight: 400;
+}
+
+/* Typography scale classes */
+.text-hero {
+  font-size: clamp(64px, 10vw, var(--text-hero));
+  line-height: var(--leading-hero);
+  letter-spacing: var(--tracking-hero);
+}
+
+.text-display-xl {
+  font-size: clamp(52px, 8vw, var(--text-display-xl));
+  line-height: var(--leading-display-xl);
+  letter-spacing: var(--tracking-display-xl);
+}
+
+.text-display-lg {
+  font-size: clamp(44px, 6vw, var(--text-display-lg));
+  line-height: var(--leading-display-lg);
+  letter-spacing: var(--tracking-display-lg);
+}
+
+.text-display {
+  font-size: clamp(38px, 5vw, var(--text-display));
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+.text-heading-lg {
+  font-size: clamp(32px, 4vw, var(--text-heading-lg));
+  line-height: var(--leading-heading-lg);
+  letter-spacing: var(--tracking-heading-lg);
+}
+
+.text-heading-sm {
+  font-size: clamp(24px, 3vw, var(--text-heading-sm));
+  line-height: var(--leading-heading-sm);
+  letter-spacing: var(--tracking-heading-sm);
+}
+
+.text-subheading {
+  font-size: var(--text-subheading);
+  line-height: var(--leading-subheading);
+  letter-spacing: var(--tracking-subheading);
+}
+
+.text-body-lg {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body-lg);
+  letter-spacing: var(--tracking-body-lg);
+}
+
+.text-body {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+}
+
+.text-caption {
+  font-family: var(--font-roboto-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+}
+
+/* Hairline borders */
+.border-hairline-dark {
+  border: 1px solid var(--color-graphite);
+}
+
+.border-hairline-light {
+  border: 1px solid var(--color-lichen);
+}
+
+.divider-dark {
+  height: 1px;
+  background-color: var(--color-graphite);
+  width: 100%;
+}
+
+.divider-light {
+  height: 1px;
+  background-color: var(--color-lichen);
+  width: 100%;
+}
+
+/* Section surface utility classes */
+.bg-canvas-dark {
+  background-color: var(--color-abyssal-ink);
+  color: var(--color-paper);
+}
+
+.bg-canvas-light {
+  background-color: var(--color-bone-white);
+  color: var(--color-abyssal-ink);
+}
+
+.bg-footer {
+  background-color: var(--color-void);
+  color: var(--color-paper);
+}
+
+/* Max container */
+.container-constrained {
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-24);
+  padding-right: var(--spacing-24);
+}
